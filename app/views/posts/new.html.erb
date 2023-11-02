@@ -1,0 +1,71 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="tag-plus-container">
+    <div class="tag-label">
+    <a>新規タグを追加</a>
+    </div>
+    <%= form_tag({ controller: "posts", action: "index" }, method: :get, class: "tag-form-010") do %>
+    <label>
+        <%= text_field_tag :tag, nil %>
+    </label>
+    <button type="submit">追加</button>
+    <% end %>
+</div>
+
+<div class="post-container">
+    <p class="title">新規投稿</p>
+    <%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
+    <%= f.label :投稿内容 %>
+        <br>
+        <div class="form-group">
+            <%= f.label :ユーザーネーム %>
+            <%= f.text_field :name, :size => 140 %>
+        </div>
+        <div class="form-group">
+            <%= f.label :卒業年 %>
+            <%= f.text_field :graduation, :size => 140 %>
+        </div>
+        <div class="form-group">
+            <%= f.label :イベント内容 %>
+            <%= f.text_field :title, :size => 140 %>
+        </div>
+        <div class="form-group">
+            <%= f.label :参加した日付, class: 'control-label' %>
+            <%= f.date_field :date, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+            <%= f.label :感想 %>
+            <%= f.text_field :about, :size=> 140 %>
+        </div>
+        <p class="star_form">総合評価</p>
+            <div class="post_form">
+            <%= f.radio_button :overall, 5 ,id: 'star1'%>
+            <label for="star1"><span class="text">最高</span>★</label>
+
+            <%= f.radio_button :overall, 4 ,id: 'star2'%>
+            <label for="star2"><span class="text">良い</span>★</label>
+
+            <%= f.radio_button :overall, 3 ,id: 'star3'%>
+            <label for="star3"><span class="text">普通</span>★</label>
+
+            <%= f.radio_button :overall, 2 ,id: 'star4'%>
+            <label for="star4"><span class="text">悪い</span>★</label>
+
+            <%= f.radio_button :overall, 1 ,id: 'star5'%>
+            <label for="star5"><span class="text">最悪</span>★</label>
+            </div>
+        <br>
+        <div class='form-group'>
+        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div class='form-check'>
+                <%= tag.label class: 'form-check-label' do %>
+                    <%= tag.check_box class: 'form-check-input' %>
+                    <%= tag.text %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+    <%= f.submit "送信"%>
+    <br>
+    <% end %>
+</div>

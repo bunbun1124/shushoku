@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<%= form_for @post do |f| %>
+  <div class="form-group">
+    <%= f.label :ユーザーネーム %>
+    <%= f.text_field :name, :size => 140 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :卒業年 %>
+    <%= f.text_field :graduation, :size => 140 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :イベント内容 %>
+    <%= f.text_field :title, :size => 140 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :参加した日付, class: 'control-label' %>
+    <%= f.date_field :date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :感想 %>
+    <%= f.text_field :about, :size=> 140 %>
+  </div>
+  <%= f.submit "編集する" , class: "send-button" %>
+<% end %>

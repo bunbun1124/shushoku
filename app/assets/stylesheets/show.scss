@@ -1,0 +1,24 @@
+.show-container {
+    width: 50%;
+    margin: 10px auto;
+}
+
+.post-all-button {
+    background-color: #007bbb; /* ボタンの背景色 */
+    color: #fff; /* テキストの色 */
+    padding: 5px; /* パディング（上下と左右の余白） */
+    border: none; /* ボーダーを削除 */
+    border-radius: 5px; /* 角丸の半径 */
+    cursor: pointer; /* カーソルをポインターに変更 */
+    text-decoration: none; /* テキストの下線を削除 */
+    margin-top:50px;
+    margin-left: 380px;
+}
+  /* ボタンにホバースタイルを追加（任意） */
+.post-all-button:hover {
+    background-color: #0056b3; /* ホバー時の背景色 */
+}
+
+.name{
+    font-weight: bold;
+}

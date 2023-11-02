@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ * {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+    Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+    background-image: url("texture_00010.jpg");
+    background-size: cover;
+}
+header {
+    background-color: #007bbb;
+    height: 80px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header a {
+    color: white; 
+    text-decoration: none; 
+}
+header h1 {
+    color: white;
+    margin-left: 20px;
+}
+.header-list {
+    display: flex;
+    align-items: center;
+}
+header ul {
+    display: flex;
+}
+header li {
+    list-style: none;
+    margin-right: 40px;
+}
+.header-list {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+footer {
+    color: white;
+    height: 30px;
+    background-color: #000;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    justify-content: flex-end;
+    right: 0;
+}
+.header-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.header-list ul li {
+    display: inline-block;
+    margin-right: 20px; /* メニュー項目間の間隔を設定 */
+}
+
+  /* メディアクエリを使用して、画面幅が一定以下の場合にスタイルを適用 */
+@media screen and (max-width: 768px) {
+    .header-list ul li {
+      display: block; /* メニュー項目を縦に配置 */
+      margin-bottom: 10px; /* メニュー項目間の垂直間隔を設定 */
+    }
+}
+
+/* app/assets/stylesheets/application.css */
+.logout-button {
+    background-color: #007bbb; /* ボタンの背景色 */
+    color: #fff; /* テキストの色 */
+    padding: 5px 10px; /* パディング（上下と左右の余白） */
+    border: none; /* ボーダーを削除 */
+    border-radius: 5px; /* 角丸の半径 */
+    cursor: pointer; /* カーソルをポインターに変更 */
+    text-decoration: none; /* テキストの下線を削除 */
+    /* その他のスタイル設定 */
+}
+
+  /* ボタンにホバースタイルを追加（任意） */
+.logout-button:hover {
+    background-color: #e83929; /* ホバー時の背景色 */
+}
+
+.title-container{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-left: 48px;
+}

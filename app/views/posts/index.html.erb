@@ -1,0 +1,102 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<div class="up-container">
+    <div class="search-container">
+        <div class="search-label">
+            <a>投稿を検索</a>
+        </div>
+        <%= form_tag({ controller: "posts", action: "index" }, method: :get, class: "search-form-012") do %>
+        <label>
+            <%= text_field_tag :search, nil, placeholder: "キーワードを入力" %>
+        </label>
+        <button type="submit" aria-label="検索"></button>
+        <% end %>
+    </div>
+
+    <div class="tag-container">
+        <div class="tag-label">
+            <a>新規タグを追加</a>
+        </div>
+        <%= form_tag({ controller: "posts", action: "index" }, method: :get, class: "tag-form-010") do %>
+        <label>
+            <%= text_field_tag :tag, nil %>
+        </label>
+        <button type="submit">追加</button>
+        <% end %>
+    </div>
+
+    <div class="tag-all-container">
+        <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+                <%= select_tag :tag_search, options_from_collection_for_select(@tag, "id","name") %>
+                <%= submit_tag "検索", class: "search-button" %>
+        <% end %>
+    </div>
+
+    
+</div>
+
+<div class="posts-container">
+<h3>投稿一覧</h3>
+<%= page_entries_info @posts %>
+<%= paginate @posts %>
+<div class="link-container">
+    <%= link_to '新着順', posts_path(latest: "true") %>
+    <%= link_to '古い順', posts_path(old: "true") %>
+    <%= link_to 'いいね順', posts_path(most_favorited: "true") %>
+</div>
+    <% @posts.each do |t| %>
+    <div class="post">
+        <% if user_signed_in? %>
+        <% if current_user.already_liked?(t) %>
+            <%= button_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+        <% else %>
+            <%= button_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                <i class="far fa-heart"></i><%= t.likes.count %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <i class="far fa-heart"></i><%= t.likes.count %>
+    <% end %>
+        <div class="main-box">
+        <div class="left-container">
+        <%= t.name %>
+        <%= t.graduation %>
+        <%= t.title %>
+        <%= t.date %>
+        <%= t.about %>
+        </div>
+        <div class="center-container">
+<!--- 総合評価の星の部分 ---------->
+<div style = 'margin:10px; border:2px double black; width:215px;padding-left:10px;'>
+<div>
+<h4>総合評価：
+<span class="star-rating">
+    <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+    <span class="star-rating-back">★★★★★</span>
+</span> 
+</h4>
+</div>
+<!--- 総合評価の星の部分終わり------->
+</div>
+        <p>#タグ</P>
+            <% t.tags.each do |tag| %>
+                <%= tag.name %>
+        <% end %>
+        </div>
+        <div class="right-container">
+            <%# <%= t.user.email %>
+            <%= link_to "詳細", post_path(t.id) %>
+        </div>
+        </div>
+        <p class="time"><%= t.created_at %></p>
+    </div>
+        <% if user_signed_in? && current_user.id == t.user_id %>
+        <div class="edit-delete-container">
+        <%= link_to "編集する", edit_post_path(t.id) %>
+        <%= button_to "削除する", post_path(t.id), method: :delete, class: 'delete-button' %>
+        </div>
+    <% end %> 
+    <% end %>
+</div>

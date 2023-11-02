@@ -1,0 +1,107 @@
+.post-container {
+    margin: 50px auto;
+    width: 50%;
+    border: solid #d3def1;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #d3def1;
+}
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+input[type="text"] {
+    width: 95%;
+    height: 40px;
+}
+input[type="submit"] {
+    width: 200px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.tag-form-010 {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+}
+
+.tag-form-010 label {
+    width: 250px;
+}
+
+.tag-form-010 input {
+    width: 100%;
+    height: 34px;
+    padding: 1px 5px 1px 8px;
+    border: 1px solid #999999;
+    box-sizing: border-box;
+    color: #000;
+    outline: none;
+}
+
+.tag-form-010 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    max-width: 140px;
+    height: 34px;
+    border: none;
+    background-color: #4070ff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tag-form-010 button::before {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    background-repeat: no-repeat;  
+}
+
+.send-button {
+    background-color: #007bbb; /* ボタンの背景色 */
+    color: #fff; /* テキストの色 */
+    padding: 5px; /* パディング（上下と左右の余白） */
+    border: none; /* ボーダーを削除 */
+    border-radius: 5px; /* 角丸の半径 */
+    cursor: pointer; /* カーソルをポインターに変更 */
+    text-decoration: none; /* テキストの下線を削除 */
+    margin-top:50px;
+    margin-left: 250px;
+}
+  /* ボタンにホバースタイルを追加（任意） */
+.send-button:hover {
+    background-color: #0056b3; /* ホバー時の背景色 */
+}
+.form-group {
+    margin-bottom: 20px; /* フォームグループごとの下部のマージンを追加 */
+}
+
+  /* ラベルのスタイル */
+label {
+    display: block; /* ブロック要素として表示することで改行される */
+}
+
+  /* テキストフィールドのスタイル */
+input[type="text"] {
+    width: 95%; /* 幅を100%に設定して親要素の幅に合わせる */
+    
+}
+
+.tag-label{
+    font-size: 18px; /* フォントサイズを大きく設定（例: 20px） */
+    font-weight: bold; /* フォントを太く設定 */
+    text-align: right;
+    margin-right: 150px;
+}
+.tag-plus-container{
+    float: right;
+    // display: flex; 
+    // flex-direction: column; 
+    // justify-content: flex-start; 
+    // align-items: flex-end;
+    margin-right: 10px;
+}

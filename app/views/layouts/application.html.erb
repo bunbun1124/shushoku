@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shushoku</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <script src="https://kit.fontawesome.com/ecf44fb613.js" crossorigin="anonymous"></script>
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-image: url('<%= asset_path('texture_00010.jpg') %>');">
+    <header>
+      <div class="left-container">
+      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout-button' %>
+      </div>
+      <div class="title-container">
+      <h1><%= link_to "Shushoku", posts_path %></h1>
+      </div>
+      <div class="header-list">
+      <ul>
+        <li><%= link_to "ホーム", posts_path %></li>
+        <li><%= link_to "新規投稿",new_post_path %></li>
+        <% if user_signed_in? %>
+          <%= link_to "マイページへ", user_path(current_user.id) %>
+        <% end %>
+      </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>Copyright © GeekSalon All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
