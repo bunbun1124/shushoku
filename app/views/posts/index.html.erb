@@ -84,6 +84,7 @@
       <div class="right-container">
         <%= link_to "詳細", post_path(t.id) %>
       </div>
+      </div>
       <p class="time"><%= t.created_at %></p>
       </div>
       <% if user_signed_in? && current_user.id == t.user_id %>
