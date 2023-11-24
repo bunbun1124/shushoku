@@ -68,6 +68,7 @@ footer {
     position: fixed;
     justify-content: flex-end;
     right: 0;
+    z-index: 0;
 }
 .header-list ul {
     list-style: none;
@@ -109,4 +110,10 @@ footer {
     justify-content: center; 
     align-items: center;
     margin-left: 48px;
+}
+.post {
+    border-top: solid #00acee;
+    margin-top: 10px;
+    padding-top: 20px;
+     z-index: 1;
 }
