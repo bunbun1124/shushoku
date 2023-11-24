@@ -57,11 +57,13 @@
       <% end %>
       <div class="main-box">
       <div class="left-container">
-        <%= t.name %>
-        <%= t.graduation %>
-        <%= t.title %>
-        <%= t.date %>
-        <%= t.about %>
+        <h4>
+          ユーザーネーム : <%= t.name %><br>
+          卒業年 : <%= t.graduation %><br>
+          タイトル : <%= t.title %><br>
+          参加日 : <%= t.date %><br>
+          感想・評価 : <br><%= t.about %><br>
+        </h4>
       </div>
       <div class="center-container">
       <!--- 総合評価の星の部分 ---------->
